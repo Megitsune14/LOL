@@ -1,0 +1,234 @@
+.landing {
+  width: min(var(--container-width), 100% - 2.5rem);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-8) 0;
+  position: relative;
+}
+
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(170, 87, 255, 0.15), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(141, 70, 241, 0.16), transparent 40%);
+  animation: pulseLayer 9s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.hero-section {
+  width: min(900px, 100%);
+}
+
+.hero-copy {
+  text-align: center;
+}
+
+.hero-only {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-10);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-strong);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  color: var(--color-text);
+  margin: 0;
+}
+
+h1 {
+  margin-top: var(--space-4);
+  font-size: clamp(2rem, 4.4vw, 4.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  margin-bottom: var(--space-5);
+}
+
+.lead {
+  max-width: 60ch;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin: var(--space-5) auto 0;
+}
+
+.hero-form {
+  margin-top: var(--space-8);
+  display: grid;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.hero-form label {
+  font-weight: 600;
+}
+
+.hero-form input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: rgba(17, 14, 28, 0.95);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 0.9rem;
+  font-size: 1rem;
+}
+
+.roles-header {
+  margin-top: var(--space-8);
+}
+
+.roles-header p {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.roles-grid {
+  margin-top: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.role-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-5);
+  text-align: center;
+  color: var(--color-text);
+}
+
+.role-name {
+  margin: 0 0 var(--space-2);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.role-card p:last-child {
+  color: var(--color-text-muted);
+}
+
+.reveal {
+  animation: revealUp 0.75s ease both;
+}
+
+.role-button {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.role-button.is-selected {
+  border-color: var(--color-accent-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+.play-action {
+  margin-top: var(--space-8);
+  display: flex;
+  justify-content: center;
+}
+
+.play-button {
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, #914bff, #c78cff);
+  color: #0d071f;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  padding: 0.82rem 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.play-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: grayscale(0.2);
+  transform: none;
+}
+
+.help-fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 10;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(120deg, #7f3ff3, #b97cff);
+  color: #130a25;
+  font-weight: 700;
+  padding: 0.72rem 1rem;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.help-fab:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLayer {
+  from {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+  to {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .roles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .landing {
+    width: min(var(--container-width), 100% - 1.25rem);
+  }
+  .hero-only {
+    padding: var(--space-6);
+  }
+}

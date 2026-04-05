@@ -1,0 +1,45 @@
+.help-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  width: min(var(--container-width), 100% - 2rem);
+  margin: 0 auto;
+  padding: var(--space-8) 0;
+}
+
+.help-card {
+  width: min(680px, 100%);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  padding: var(--space-10);
+}
+
+.help-eyebrow {
+  margin: 0;
+  color: var(--color-accent-strong);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.help-card h1 {
+  margin: var(--space-4) 0;
+}
+
+.help-card p {
+  color: var(--color-text-muted);
+}
+
+.help-back {
+  margin-top: var(--space-8);
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(120deg, #914bff, #c78cff);
+  color: #0d071f;
+  font-weight: 700;
+  padding: 0.75rem 1.2rem;
+}
